@@ -7,7 +7,7 @@ public class Greeting {
     private int gridNumber;
     private static GameBoard gameBoard;
 
-    // Print welcome function and ask users for name and grid number.
+    // Print welcome function and ask users for name and board size.
     public void welcome() {
         System.out.println("Welcome!! This is a Text-based Grid Game:)");
         System.out.print("What's your name? ");
@@ -19,6 +19,8 @@ public class Greeting {
 //        System.out.print("How many grids do you want? (e.g. input '3' for 3x3) ");
 //        this.setGridNumber(scan.nextInt());
         selectBoardSize();
+        //initialiseGame();
+        startGame();
     }
 
     // Getters and Setters
@@ -75,5 +77,23 @@ public class Greeting {
         gameBoard.setTreasureLoc(2, 2);
         gameBoard.setMonsterLoc(3, 3);
         gameBoard.printBoard();
+    }
+
+    private static void startGame() {
+        Move move = new Move(gameBoard);
+        Scanner scanner = new Scanner(System.in);
+        boolean isRunning = true;
+        while (isRunning) {
+            System.out.print("Enter command (move/exit): ");
+            String command = scanner.nextLine();
+            if (command.equalsIgnoreCase("move")) {
+                move.askDirection();
+            } else if (command.equalsIgnoreCase("exit")) {
+                System.out.println("Thanks for playing!");
+                isRunning = false;
+            } else {
+                System.out.println("Invalid command.");
+            }
+        }
     }
 }
