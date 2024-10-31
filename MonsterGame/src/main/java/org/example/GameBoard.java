@@ -54,4 +54,22 @@ public class GameBoard {
         this.monsterLoc[0] = x;
         this.monsterLoc[1] = y;
     }
+
+    // found on the internet and adjusted
+    public void printBoard() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (i == playerLoc[0] && j == playerLoc[1]) {
+                    System.out.print("P "); // player
+                } else if (i == treasureLoc[0] && j == treasureLoc[1]) {
+                    System.out.print("T "); // player
+                } else if (i == monsterLoc[0] && j == monsterLoc[1]) {
+                    System.out.print("M "); // monster
+                } else {
+                    System.out.print("# ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }

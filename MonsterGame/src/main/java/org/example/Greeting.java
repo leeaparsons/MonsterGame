@@ -67,5 +67,13 @@ public class Greeting {
                 System.out.println("Invalid choice. Defaulting to 5x5.");
                 gameBoard = new GameBoard(5, 5);
         }
+        initialiseGame(); // sets player, treasure & location
+    }
+
+    private static void initialiseGame() {
+        gameBoard.setPlayerLoc(0, 0); // currently fixed locations for player, treasure & monster
+        gameBoard.setTreasureLoc(2, 2);
+        gameBoard.setMonsterLoc(3, 3);
+        gameBoard.printBoard();
     }
 }
