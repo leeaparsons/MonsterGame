@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class Move {
     private GameBoard gameBoard;
+    private int[] lastPlayerLoc;
 
-    public Move(GameBoard gameBoard){
+    public Move(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
+        this.lastPlayerLoc = gameBoard.getPlayerLoc().clone();
     }
 
     public void askDirection() {
@@ -14,7 +16,7 @@ public class Move {
         String direction; // CHECK
         boolean validDirection = false;
 
-        while(!validDirection) {
+        while (!validDirection) {
             System.out.print("Input direction (up/ down/ left/ right: ");
             direction = scan.nextLine().toLowerCase();
 
@@ -42,7 +44,8 @@ public class Move {
         }
         gameBoard.printBoard();
         checkMonster(); // checks is player landed on the monster
-        checkTreasure(); // checks is player landed on the monster
+        checkTreasure(); // checks is player landed on the treasure
+        giveSupport();
     }
 
     public void moveRight() {
@@ -76,7 +79,6 @@ public class Move {
     }
 
 
-    // new code
     private void checkMonster() {
         int[] playerLoc = gameBoard.getPlayerLoc();
         int[] monsterLoc = gameBoard.getMonsterLoc();
@@ -87,8 +89,7 @@ public class Move {
         }
     }
 
-    // new code
-    private void checkTreasure(){
+    private void checkTreasure() {
         int[] playerLoc = gameBoard.getPlayerLoc();
         int[] treasureLoc = gameBoard.getTreasureLoc();
 
@@ -96,5 +97,24 @@ public class Move {
             System.out.println("Well done. You found the treasure! YOU WIN!");
             System.exit(0); // exit the game
         }
+    }
+
+    // new code BELOW
+    private void giveSupport() {
+        int[] currentPlayerLoc = gameBoard.getPlayerLoc();
+        int[] treasureLoc = gameBoard.getTreasureLoc();
+        double previousDistance = calculateDistance(lastPlayerLoc, treasureLoc);
+        double currentDistance = calculateDistance(currentPlayerLoc, treasureLoc);
+
+        if (currentDistance < previousDistance) {
+            System.out.println("Ooooh you're getting closer!");
+        } else {
+            System.out.println("Time to re-think, you're moving further away.");
+        }
+        lastPlayerLoc = currentPlayerLoc.clone(); // update last player location
+    }
+
+    private double calculateDistance(int[] loc1, int[] loc2) {
+        return Math.sqrt(Math.pow(loc1[0] - loc2[0], 2) + Math.pow(loc1[1] - loc2[1], 2));
     }
 }
