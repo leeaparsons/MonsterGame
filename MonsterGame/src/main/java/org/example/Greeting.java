@@ -7,7 +7,7 @@ public class Greeting {
     private int gridNumber;
     private static GameBoard gameBoard;
 
-    // Print welcome function and ask users for name and board size.
+    // Print welcome function and ask users for name and grid number.
     public void welcome() {
         System.out.println("Welcome!! This is a Text-based Grid Game:)");
         System.out.print("What's your name? ");
@@ -19,11 +19,10 @@ public class Greeting {
 //        System.out.print("How many grids do you want? (e.g. input '3' for 3x3) ");
 //        this.setGridNumber(scan.nextInt());
         selectBoardSize();
-        //initialiseGame();
+        initialiseGame(); // sets player, treasure & location
         startGame();
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -69,7 +68,6 @@ public class Greeting {
                 System.out.println("Invalid choice. Defaulting to 5x5.");
                 gameBoard = new GameBoard(5, 5);
         }
-        initialiseGame(); // sets player, treasure & location
     }
 
     private static void initialiseGame() {
@@ -79,20 +77,19 @@ public class Greeting {
         gameBoard.printBoard();
     }
 
-    private static void startGame() {
+    private static void startGame(){
         Move move = new Move(gameBoard);
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
         while (isRunning) {
-            System.out.print("Enter command (move/exit): ");
+            move.askDirection();
+
+            System.out.println("Type 'exit' or press Enter to continue: ");
             String command = scanner.nextLine();
-            if (command.equalsIgnoreCase("move")) {
-                move.askDirection();
-            } else if (command.equalsIgnoreCase("exit")) {
-                System.out.println("Thanks for playing!");
+
+            if (command.equalsIgnoreCase("exit")) {
+                System.out.println("Goodbye!");
                 isRunning = false;
-            } else {
-                System.out.println("Invalid command.");
             }
         }
     }
