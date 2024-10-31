@@ -11,8 +11,8 @@ public class Player {
     }
 
     public Player(String name, int score) {
-        this.name;
-        this.score;
+        this.setName(name);
+        this.setScore(score);
     }
 
     public String getName() {
