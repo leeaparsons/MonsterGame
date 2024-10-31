@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Greeting {
     private String name;
     private int gridNumber;
+    private static GameBoard gameBoard;
 
     // Print welcome function and ask users for name and grid number.
     public void welcome() {
@@ -15,8 +16,9 @@ public class Greeting {
 
         System.out.println("Nice to meet you, " + name + ". You will need to find the treasure, and avoid the monsters on the way. ");
 
-        System.out.print("How many grids do you want? (e.g. input '3' for 3x3) ");
-        this.setGridNumber(scan.nextInt());
+//        System.out.print("How many grids do you want? (e.g. input '3' for 3x3) ");
+//        this.setGridNumber(scan.nextInt());
+        selectBoardSize();
     }
 
     // Getters and Setters
@@ -36,5 +38,34 @@ public class Greeting {
         this.name = name;
     }
 
+    // can move selectBoardSize elsewhere if necessary
+    private static void selectBoardSize() {
+        Scanner scan = new Scanner(System.in);
 
+        System.out.println("Select the board size:");
+        System.out.println("1. 5x5");
+        System.out.println("2. 10x10");
+        System.out.println("3. 15x15");
+
+        int choice = scan.nextInt();
+        scan.nextLine();
+
+        switch (choice) {
+            case 1:
+                gameBoard = new GameBoard(5, 5);
+                System.out.println("You Chose a 5 x 5 board!");
+                break;
+            case 2:
+                gameBoard = new GameBoard(10, 10);
+                System.out.println("You Chose a 10 x 10 board!");
+                break;
+            case 3:
+                gameBoard = new GameBoard(15, 15);
+                System.out.println("You Chose a 15 x 15 board!");
+                break;
+            default:
+                System.out.println("Invalid choice. Defaulting to 5x5.");
+                gameBoard = new GameBoard(5, 5);
+        }
+    }
 }
