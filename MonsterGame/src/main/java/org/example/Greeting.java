@@ -79,14 +79,9 @@ public class Greeting {
 
     private static void startGame(){
         Move move = new Move(gameBoard);
-        Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
         while (isRunning) {
-            move.askDirection();
-
-            System.out.println("Type 'exit' or press Enter to continue: ");
-            String command = scanner.nextLine();
-
+            String command = move.askDirection();
             if (command.equalsIgnoreCase("exit")) {
                 System.out.println("Goodbye!");
                 isRunning = false;

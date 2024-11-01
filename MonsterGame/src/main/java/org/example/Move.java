@@ -11,9 +11,9 @@ public class Move {
         this.lastPlayerLoc = gameBoard.getPlayerLoc().clone();
     }
 
-    public void askDirection() {
+    public String askDirection() {
         Scanner scan = new Scanner(System.in);
-        String direction; // CHECK
+        String direction = ""; // CHECK
         boolean validDirection = false;
 
         while (!validDirection) {
@@ -46,6 +46,8 @@ public class Move {
         checkMonster(); // checks is player landed on the monster
         checkTreasure(); // checks is player landed on the treasure
         giveSupport();
+
+        return direction;
     }
 
     public void moveRight() {
