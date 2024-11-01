@@ -6,6 +6,7 @@ public class Greeting {
     private String name;
     private static int gridNumber = 5;
     private static GameBoard gameBoard;
+    private static boolean[][] occupiedPositions;
 
     // Print welcome function and ask users for name and grid number.
     public void welcome() {
@@ -69,9 +70,18 @@ public class Greeting {
 
     private static void initialiseGame() {
         gameBoard = new GameBoard(gridNumber,gridNumber);
-        gameBoard.setPlayerLoc(genRanNum(gridNumber), genRanNum(gridNumber)); // currently fixed locations for player, treasure & monster
-        gameBoard.setTreasureLoc(genRanNum(gridNumber), genRanNum(gridNumber));
-        gameBoard.setMonsterLoc(genRanNum(gridNumber), genRanNum(gridNumber));
+        occupiedPositions = new boolean[gridNumber][gridNumber];
+        int[] location1 = genLocation();
+        int[] location2 = genLocation();
+        int[] location3 = genLocation();
+
+        gameBoard.setPlayerLoc(location1[0], location1[1]);
+        gameBoard.setTreasureLoc(location2[0], location2[1]);
+        gameBoard.setMonsterLoc(location3[0], location3[1]);
+
+//        System.out.println("Player location" + gameBoard.getPlayerLoc()[0] + gameBoard.getPlayerLoc()[1]);
+//        System.out.println("moster location" + gameBoard.getMonsterLoc()[0] + gameBoard.getMonsterLoc()[1]);
+//        System.out.println("treasure location" + gameBoard.getTreasureLoc()[0] + gameBoard.getTreasureLoc()[1]);
         gameBoard.printBoard();
     }
 
@@ -87,6 +97,15 @@ public class Greeting {
         }
     }
 
+    private static int[] genLocation() {
+        int x, y;
+        do {
+            x = genRanNum(gridNumber);
+            y = genRanNum(gridNumber);
+        } while (occupiedPositions[x][y]);
+        occupiedPositions[x][y] = true;
+        return new int[]{x, y};
+    }
     public static int genRanNum(int gridNumber) {
         return (int) (Math.random() * gridNumber);
     }
