@@ -45,6 +45,7 @@ public class Greeting {
         System.out.println("1. 5x5");
         System.out.println("2. 10x10");
         System.out.println("3. 15x15");
+        System.out.print("Input your choice (1/2/3): ");
 
         int choice = scan.nextInt();
         scan.nextLine();

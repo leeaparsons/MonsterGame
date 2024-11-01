@@ -17,7 +17,7 @@ public class Move {
         boolean validDirection = false;
 
         while (!validDirection) {
-            System.out.print("Input direction (up/ down/ left/ right: ");
+            System.out.print("Input direction (up/ down/ left/ right): ");
             direction = scan.nextLine().toLowerCase();
 
             switch (direction) {
