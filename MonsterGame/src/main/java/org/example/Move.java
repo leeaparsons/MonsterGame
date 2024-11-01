@@ -2,6 +2,8 @@ package org.example;
 
 import java.util.Scanner;
 
+import static org.example.Monster.printMonster;
+
 public class Move {
     private GameBoard gameBoard;
     private int[] lastPlayerLoc;
@@ -85,7 +87,8 @@ public class Move {
         int[] monsterLoc = gameBoard.getMonsterLoc();
 
         if (playerLoc[0] == monsterLoc[0] && playerLoc[1] == monsterLoc[1]) {
-            System.out.println("Oh no! You've sat on the monster! Game Over.");
+            System.out.println("Oh no! You've landed on the monster!");
+            printMonster();
             System.exit(0); // exit the game
         }
     }

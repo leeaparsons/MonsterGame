@@ -2,6 +2,8 @@ package org.example;
 
 import java.util.Scanner;
 
+import static org.example.Monster.printMonster;
+
 public class Greeting {
     private String name;
     private static int gridNumber = 5;
