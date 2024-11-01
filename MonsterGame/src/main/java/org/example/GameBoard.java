@@ -60,13 +60,13 @@ public class GameBoard {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (i == playerLoc[0] && j == playerLoc[1]) {
-                    System.out.print("P "); // player
+                    System.out.print("\uD83D\uDE0E "); // player
                 } else if (i == treasureLoc[0] && j == treasureLoc[1]) {
-                    System.out.print("T "); // player
+                    System.out.print("\uD83D\uDC8E "); // player
                 } else if (i == monsterLoc[0] && j == monsterLoc[1]) {
-                    System.out.print("M "); // monster
+                    System.out.print("\uD83D\uDC09 "); // monster
                 } else {
-                    System.out.print("# ");
+                    System.out.print("⬜ ");
                 }
             }
             System.out.println();
