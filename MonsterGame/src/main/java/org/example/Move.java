@@ -80,7 +80,6 @@ public class Move {
         }
     }
 
-
     private void checkMonster() {
         int[] playerLoc = gameBoard.getPlayerLoc();
         int[] monsterLoc = gameBoard.getMonsterLoc();
@@ -115,7 +114,6 @@ public class Move {
         }
         lastPlayerLoc = currentPlayerLoc.clone(); // update last player location
     }
-
     private double calculateDistance(int[] loc1, int[] loc2) {
         return Math.sqrt(Math.pow(loc1[0] - loc2[0], 2) + Math.pow(loc1[1] - loc2[1], 2));
     }

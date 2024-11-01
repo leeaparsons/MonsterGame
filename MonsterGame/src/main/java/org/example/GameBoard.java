@@ -62,9 +62,9 @@ public class GameBoard {
                 if (i == playerLoc[0] && j == playerLoc[1]) {
                     System.out.print("\uD83D\uDE0E "); // player
                 } else if (i == treasureLoc[0] && j == treasureLoc[1]) {
-                    System.out.print("\uD83D\uDC8E "); // player
-                } else if (i == monsterLoc[0] && j == monsterLoc[1]) {
-                    System.out.print("\uD83D\uDC09 "); // monster
+                    System.out.print("\uD83D\uDC8E "); // treasure
+//                } else if (i == monsterLoc[0] && j == monsterLoc[1]) {
+//                    System.out.print("\uD83D\uDC09 "); // monster
                 } else {
                     System.out.print("⬜ ");
                 }

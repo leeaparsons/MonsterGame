@@ -79,9 +79,9 @@ public class Greeting {
         gameBoard.setTreasureLoc(location2[0], location2[1]);
         gameBoard.setMonsterLoc(location3[0], location3[1]);
 
-//        System.out.println("Player location" + gameBoard.getPlayerLoc()[0] + gameBoard.getPlayerLoc()[1]);
-//        System.out.println("moster location" + gameBoard.getMonsterLoc()[0] + gameBoard.getMonsterLoc()[1]);
-//        System.out.println("treasure location" + gameBoard.getTreasureLoc()[0] + gameBoard.getTreasureLoc()[1]);
+        //System.out.println("Player location" + gameBoard.getPlayerLoc()[0] + gameBoard.getPlayerLoc()[1]);
+        System.out.println("Monster location" + gameBoard.getMonsterLoc()[0] + gameBoard.getMonsterLoc()[1]);
+        //System.out.println("treasure location" + gameBoard.getTreasureLoc()[0] + gameBoard.getTreasureLoc()[1]);
         gameBoard.printBoard();
     }
 
