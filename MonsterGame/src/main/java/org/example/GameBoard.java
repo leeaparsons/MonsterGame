@@ -6,6 +6,7 @@ public class GameBoard {
     private int[] treasureLoc = new int[2];
     private int[] playerLoc = new int[2];
     private int[] monsterLoc = new int[2];
+    private int[] monsterLoc2 = new int[2];
 
     public GameBoard(int width, int height) {
         this.width = width;
@@ -53,6 +54,15 @@ public class GameBoard {
     public void setMonsterLoc(int x, int y) {
         this.monsterLoc[0] = x;
         this.monsterLoc[1] = y;
+    }
+
+    public int[] getMonsterLoc2() {
+        return monsterLoc2;
+    }
+
+    public void setMonsterLoc2(int x, int y) {
+        this.monsterLoc2[0] = x;
+        this.monsterLoc2[1] = y;
     }
 
     // found on the internet and adjusted

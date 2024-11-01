@@ -79,8 +79,14 @@ public class Greeting {
         gameBoard.setTreasureLoc(location2[0], location2[1]);
         gameBoard.setMonsterLoc(location3[0], location3[1]);
 
+        if (gridNumber == 10 || gridNumber == 15) {
+            int[] location4 = genLocation();
+            gameBoard.setMonsterLoc2(location4[0],location4[1]);
+        } else gameBoard.setMonsterLoc2(location3[0],location3[1]);
+
         //System.out.println("Player location" + gameBoard.getPlayerLoc()[0] + gameBoard.getPlayerLoc()[1]);
-        System.out.println("Monster location" + gameBoard.getMonsterLoc()[0] + gameBoard.getMonsterLoc()[1]);
+        System.out.println("Monster 1 location" + gameBoard.getMonsterLoc()[0] + gameBoard.getMonsterLoc()[1]);
+        System.out.println("Monster 2 location" + gameBoard.getMonsterLoc2()[0] + gameBoard.getMonsterLoc2()[1]);
         //System.out.println("treasure location" + gameBoard.getTreasureLoc()[0] + gameBoard.getTreasureLoc()[1]);
         gameBoard.printBoard();
     }
