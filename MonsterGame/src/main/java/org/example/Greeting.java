@@ -14,8 +14,9 @@ public class Greeting {
         System.out.print("What's your name? ");
         Scanner scan = new Scanner(System.in);
         this.setName(scan.nextLine());
-
-        System.out.println("Nice to meet you, " + name + ". You will need to find the treasure, and avoid the monsters on the way. ");
+        System.out.println();
+        System.out.println("Nice to meet you, " + name + ".");
+        System.out.println("You will need to find the treasure, and avoid the monsters on the way. ");
 
         selectBoardSize();
         initialiseGame(); // sets player, treasure & location
@@ -42,11 +43,10 @@ public class Greeting {
     private void selectBoardSize() {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Select the board size:");
-        System.out.println("1. 5x5");
-        System.out.println("2. 10x10");
-        System.out.println("3. 15x15");
-        System.out.print("Input your choice (1/2/3): ");
+        System.out.println("1. Easy");
+        System.out.println("2. Medium");
+        System.out.println("3. Hard");
+        System.out.print("Select the board size: ");
 
         int choice = scan.nextInt();
         scan.nextLine();
