@@ -13,7 +13,7 @@ public class Greeting {
     // Print welcome function and ask users for name and grid number.
     public void welcome() {
         System.out.println("Welcome!! This is a Text-based Grid Game:)");
-        System.out.print("What's your name? ");
+        System.out.print("What's your name, buddy? ");
         Scanner scan = new Scanner(System.in);
         this.setName(scan.nextLine());
         System.out.println();
